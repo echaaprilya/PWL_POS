@@ -20,7 +20,7 @@ class UserController extends Controller
         //UserModel::create($data);
 
     // coba akses model userModel
-    $user = UserModel::find(1);
+    $user = UserModel::where('level_id', 1)-> first();
     return view('user', ['data' => $user]);
     }
 }
