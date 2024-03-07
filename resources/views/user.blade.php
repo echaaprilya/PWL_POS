@@ -8,7 +8,7 @@
         <table border="1" cellpading="2" cellspacing="0">
             <tr>
                 <th>ID</th>
-                <th>Usernma</th>
+                <th>Username</th>
                 <th>Nama</th>
                 <th>ID Level Pengguna</th>
             </tr>
