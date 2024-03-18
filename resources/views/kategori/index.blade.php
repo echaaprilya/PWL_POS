@@ -9,8 +9,9 @@
 @section('content')
     <div class="container">
         <div class="card">
-            <div class="card-header">Manage Kategori
-                <a href="../public/kategori/create" class="btn btn-primary float-right">Add</a>
+            <div class="card-header d-flex align-items-center">
+                <body class="mr-auto">Manage Kategori</body>
+                <a href="{{url('/kategori/create')}}" class="btn btn-primary ml-auto">Tambah Kategori</a>
             </div>
            
             <div class="card-body">

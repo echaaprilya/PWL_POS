@@ -18,6 +18,11 @@ class KategoriController extends Controller
         return view('kategori.create');
     }
 
+    public function edit($id){
+        $kategori = KategoriModel::find($id);
+        return view('kategori.edit', ['data' =>$kategori]);
+    }
+
     public function store(Request $request)
     {
         KategoriModel::create([
@@ -26,4 +31,25 @@ class KategoriController extends Controller
         ]);
         return redirect('/kategori');
     }
+
+    public function update($id, Request $request)
+    {
+        $kategori = KategoriModel::find($id);
+
+        $kategori->kategori_kode = $request->kodeKategori;
+        $kategori->kategori_nama = $request->namaKategori;
+
+        $kategori->save();
+
+        return redirect('/kategori');
+    }
+
+    public function delete($id)
+    {
+        $kategori = KategoriModel::find($id);
+        $kategori->delete();
+
+        return redirect('/kategori');
+    }
 }
+
