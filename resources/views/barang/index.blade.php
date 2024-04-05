@@ -36,8 +36,8 @@
                     <tr>
                         <th>ID</th>
                         <th>Kategori</th>
-                        <th>Kode Barang</th>
                         <th>Nama Barang</th>
+                        <th>Kode Barang</th>
                         <th>Harga Beli</th>
                         <th>Harga Jual</th>
                         <th>Aksi</th>
@@ -50,7 +50,7 @@
 
 @push('css')
 @endpush
-@push('js')
+@push('js')s
     <script>
         $(document).ready(function() {
             var dataBarang = $('#table_barang').DataTable({
