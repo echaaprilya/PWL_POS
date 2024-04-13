@@ -8,7 +8,7 @@ use App\Models\LevelModel;
 
 class LevelController extends Controller
 {
-    public function index()
+    public function index() //Menampilkan halaman awal
     {
         $breadcrumb = (object) [
             'title' => 'Daftar Level',
@@ -26,7 +26,7 @@ class LevelController extends Controller
         return view('level.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'level' => $level, 'activeMenu' => $activeMenu]);
     }
 
-    public function list(Request $request)
+    public function list(Request $request) 
     {
         $levels = LevelModel::select('level_id', 'level_kode', 'level_nama');
 
@@ -51,7 +51,7 @@ class LevelController extends Controller
         ->make(true);
     }
 
-    public function create()
+    public function create() //menampilkan halaman form tambah 
     {
         $breadcrumb = (object) [
             'title' => 'Tambah Level',
@@ -68,7 +68,7 @@ class LevelController extends Controller
         return view('level.create', ['breadcrumb' => $breadcrumb, 'page' => $page, 'level' => $level, 'activeMenu' => $activeMenu]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request) //menyimpan data baru
     {
         $request->validate([
             'level_kode' => 'required|string|max:10|unique:m_level,level_kode',
@@ -83,7 +83,7 @@ class LevelController extends Controller
         return redirect('/level')->with('success', 'Data level berhasil disimpan');
     }
 
-    public function show($id)
+    public function show($id) //menampilkan detail
     {
         $level = LevelModel::find($id);
 
@@ -101,7 +101,7 @@ class LevelController extends Controller
         return view('level.show', ['breadcrumb' => $breadcrumb, 'page' => $page, 'level' => $level, 'activeMenu' => $activeMenu]);
     }
 
-    public function edit(string $id)
+    public function edit(string $id) //menampilkan halaman form edit
     {
         $level = LevelModel::find($id);
 
@@ -119,7 +119,7 @@ class LevelController extends Controller
         return view('level.edit', ['breadcrumb' => $breadcrumb, 'page' => $page, 'level' => $level, 'activeMenu' => $activeMenu]);
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id) //menyimpan perubahan data
     {
         $request->validate([
             'level_kode' => 'required|string|max:10|unique:m_level,level_kode,'.$id.',level_id',
@@ -134,7 +134,7 @@ class LevelController extends Controller
         return redirect('/level')->with('success', 'Data level berhasil diubah');
     }
 
-    public function destroy(string $id)
+    public function destroy(string $id) //menghapus data
     {
         $check = LevelModel::find($id);
         if(!$check) {
